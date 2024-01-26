@@ -22,8 +22,9 @@ def get_numbers_ticket(min_num, max_num, quantity):
             if num not in num_list:
                 num_list.append(num)
         return num_list
-lottery_numbers = get_numbers_ticket(1, 48, 6)
-print("Ваші лотерейні числа:", sorted(lottery_numbers))
+    else:
+        return []
+print("Ваші лотерейні числа:", sorted(get_numbers_ticket(1, 48, 6)))
 #
 #task 3
 #
