@@ -14,16 +14,16 @@ print(get_days_from_today("2024-10-09"))
 #task 2
 #
 import random
-def get_numbers_ticket(min, max, quantity):
-    if (min >= 1 and max <= 1000)and (quantity <= (max - min)):
-        list = []
-        while len(list)<quantity:
-            a = random.randint(min,max)
-            if a not in list:
-                list.append(a)
-    return list
+def get_numbers_ticket(min_num, max_num, quantity):
+    if (min_num >= 1 and max_num <= 1000)and (quantity <= (max_num - min_num)):
+        num_list = []
+        while len(num_list)<quantity:
+            num = random.randint(min_num,max_num)
+            if num not in num_list:
+                num_list.append(num)
+        return num_list
 lottery_numbers = get_numbers_ticket(1, 48, 6)
-print("Ваші лотерейні числа:", lottery_numbers)
+print("Ваші лотерейні числа:", sorted(lottery_numbers))
 #
 #task 3
 #
@@ -80,16 +80,6 @@ def get_upcoming_birthdays(users=None):
                 if (bdate + dt.timedelta(days=1)).weekday() == 0:  
                     birthdays.append({'name': user['name'], 'birthday': (bdate + dt.timedelta(days=1)).strftime("%Y.%m.%d")})
                 elif (bdate + dt.timedelta(days=2)).weekday() == 0:
-                    birthdays.append({'name': user['name'], 'birthday': (bdate + dt.timedelta(days=2)).strftime("%Y.%m.%d")})
-        else:
-            bdate = bdate.replace(year=tdate.year + 1)
-            week_day = bdate.isoweekday()  
-            if week_day < 6:
-                birthdays.append({'name': user['name'], 'birthday': bdate.strftime("%Y.%m.%d")})
-            else:
-                if (bdate + dt.timedelta(days=1)).weekday() == 0:
-                    birthdays.append({'name': user['name'], 'birthday': (bdate + dt.timedelta(days=1)).strftime("%Y.%m.%d")})
-                elif (bdate + dt.timedelta(days=2)).weekday() == 0:  
                     birthdays.append({'name': user['name'], 'birthday': (bdate + dt.timedelta(days=2)).strftime("%Y.%m.%d")})
     return birthdays
 
